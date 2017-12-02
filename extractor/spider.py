@@ -18,13 +18,13 @@ URL_LOG_IN                    = 'https://frontendmasters.com/login/'
 URL_COURSE_LIST               = 'https://frontendmasters.com/courses/'
 
 class Spider(object):
-    def __init__(self, mute_audio):
-        options = webdriver.ChromeOptions()
+    def __init__(self):
+        # options = Firefox()
 
-        if mute_audio:
-            options.add_argument("--mute-audio")
+        # if mute_audio:
+            # options.add_argument("--mute-audio")
 
-        self.browser = webdriver.Chrome(chrome_options=options)
+        self.browser = webdriver.Firefox()
 
     def login(self, id, password):
         self.browser.get(URL_LOG_IN)
@@ -36,7 +36,7 @@ class Spider(object):
         username_field.send_keys(id)
         password_field.send_keys(password)
         password_field.send_keys(Keys.RETURN)
-
+        
     def download(self, course, high_resolution):
         # Get detailed course list
         course_detailed_list = self._get_detailed_course_list(course)

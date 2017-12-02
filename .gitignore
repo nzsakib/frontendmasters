@@ -5,6 +5,7 @@ DownloadableLinks_*.json
 **/*/*.pyc
 *.pyc
 venv/
+venve3/
 DATA_DOWNLOADABLE.json
 Download/
 
