@@ -35,8 +35,9 @@ class Spider(object):
 
         username_field.send_keys(id)
         password_field.send_keys(password)
-        password_field.send_keys(Keys.RETURN)
-        
+        self.browser.find_element_by_css_selector('.Button.ButtonRed.ButtonLarge').click()
+        # password_field.send_keys(Keys.RETURN)
+
     def download(self, course, high_resolution):
         # Get detailed course list
         course_detailed_list = self._get_detailed_course_list(course)
