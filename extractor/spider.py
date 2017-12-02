@@ -147,6 +147,7 @@ class Spider(object):
                         format_filename(subsection['title']))))
 
                     video_url = 'https://frontendmasters.com' + subsection['url']
+                    print("self.browser.get(url) : " + video_url)
                     self.browser.get(video_url)
                     time.sleep(15)
 
