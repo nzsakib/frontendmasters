@@ -3,7 +3,7 @@ from selenium                        import webdriver
 from selenium.webdriver.common.keys  import Keys
 from urllib.request                  import urlopen
 from .helper                          import *
-
+from selenium.webdriver.firefox.options import Options
 import http.client
 import http.cookiejar
 import json
@@ -18,13 +18,15 @@ URL_LOG_IN                    = 'https://frontendmasters.com/login/'
 URL_COURSE_LIST               = 'https://frontendmasters.com/courses/'
 
 class Spider(object):
-    def __init__(self):
+    def __init__(self, mute_audio):
         # options = Firefox()
+        options = Options()
+        options.add_argument('-headless')
 
         # if mute_audio:
             # options.add_argument("--mute-audio")
 
-        self.browser = webdriver.Firefox()
+        self.browser = webdriver.Firefox(firefox_options=options)
 
     def login(self, id, password):
         self.browser.get(URL_LOG_IN)

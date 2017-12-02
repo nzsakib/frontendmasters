@@ -8,7 +8,7 @@ from extractor.spider import Spider
 @click.option('--mute-audio', help='Mute Frontend Master browser tab', is_flag=True)
 @click.option('--high-resolution', help='Download high resolution videos', is_flag=True)
 def downloader(id, password, course, mute_audio, high_resolution):
-    spider = Spider()
+    spider = Spider(mute_audio)
     click.secho('>>> Login with your credential', fg='green')
     spider.login(id, password)
 
