@@ -27,6 +27,7 @@ class Spider(object):
             # options.add_argument("--mute-audio")
 
         self.browser = webdriver.Firefox(firefox_options=options)
+        # self.browser = webdriver.Chrome(chrome_options=options)
 
     def login(self, id, password):
         self.browser.get(URL_LOG_IN)
@@ -147,7 +148,7 @@ class Spider(object):
 
                     video_url = 'https://frontendmasters.com' + subsection['url']
                     self.browser.get(video_url)
-                    time.sleep(8)
+                    time.sleep(15)
 
                     if high_resolution:
                         resolution_button = self.browser.find_element_by_class_name("fm-vjs-quality")
@@ -155,7 +156,7 @@ class Spider(object):
 
                         high_resolution_text = resolution_button.find_element_by_tag_name("li")
                         high_resolution_text.click()
-                        time.sleep(3)
+                        time.sleep(10)
 
                     url_str = self._get_video_source()
                     print(("Video URL: {0}".format(url_str)))
